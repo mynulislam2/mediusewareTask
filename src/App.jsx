@@ -5,6 +5,7 @@ import Problem2 from "./components/Problem-2.jsx";
 import Index from "./components/Index.jsx";
 import './assets/scss/PopUp/popup.scss'
 import ModalA from "./components/ModalA.jsx";
+import ModalB from "./components/ModalB.jsx";
 function App() {
   return (
     <>
@@ -14,6 +15,8 @@ function App() {
           <Route path="problem-1" element={<Problem1 />} />
           <Route path="problem-2" element={<Problem2 />} />
         </Route>
+        <Route path="/ModalA" element={<ModalA/>}/>
+        <Route path="/ModalB" element={<ModalB/>}/>
       </Routes>
     </>
   );
