@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 const Problem1 = () => {
-    const [FilteredPersons, setFilteredPersons] = useState([])
     const [show, setShow] = useState('all');
     const [Name, setName] = useState("")
     const [Status, setStatus] = useState("")
     const [Persons, setPersons] = useState([])
-
+    const [ActivePersons, setActivePersons] = useState([])
+    const [CompletedPersons, setCompletedPersons] = useState([])
     const FormSubmitHandler = async (e) => {
         event.preventDefault();
         const NewPerson = {
@@ -32,16 +32,21 @@ const Problem1 = () => {
         }
 
     }
-    localStorage.setItem('persons', JSON.stringify(Persons))
     const handleClick = (val) => {
         setShow(val);
-        const persons = (JSON.parse(localStorage.getItem('persons')));
-        if (show) {
-            const NewPersons = persons.filter(person => person.Status == val);
-            console.log(NewPersons)
-            setFilteredPersons(NewPersons)
+
+        if (val == "active") {
+            const NewPersons = Persons.filter(person => person.Status == val);
+            setActivePersons(NewPersons)
         }
+        if (val == "completed") {
+            const NewPersons = Persons.filter(person => person.Status == val);
+            setCompletedPersons(NewPersons)
+        }
+
+
     }
+
     return (
 
         <div className="container">
@@ -84,19 +89,22 @@ const Problem1 = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                FilteredPersons.length > 0 ? FilteredPersons.map((person, key) => {
-                                    return <tr key={key}>
-                                        <th>{person.Name}</th>
-                                        <th>{person.Status}</th>
-                                    </tr>
-
-                                }) : Persons.map((person) => {
-                                    return <tr key={person.Name}>
-                                        <th>{person.Name}</th>
-                                        <th>{person.Status}</th>
-                                    </tr>
-                                })
+                            {show == "all" ? Persons.map((person) => {
+                                return <tr key={person.Name}>
+                                    <th>{person.Name}</th>
+                                    <th>{person.Status}</th>
+                                </tr>
+                            }) : show == "active" ? ActivePersons.map((person) => {
+                                return <tr key={person.Name}>
+                                    <th>{person.Name}</th>
+                                    <th>{person.Status}</th>
+                                </tr>
+                            }) : show == "completed" ? CompletedPersons.map((person) => {
+                                return <tr key={person.Name}>
+                                    <th>{person.Name}</th>
+                                    <th>{person.Status}</th>
+                                </tr>
+                            }):""
                             }
                         </tbody>
                     </table>

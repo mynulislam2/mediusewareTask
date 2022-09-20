@@ -8,7 +8,7 @@ const ModalB = () => {
     const [pageNumber, setPageNumber] = useState(1)
 
     useEffect(() => {
-        fetch(`https://contact.mediusware.com/api/country-contacts/bangladesh/?page=${pageNumber}`)
+        fetch(`https://contact.mediusware.com/api/country-contacts/united states/?page=${pageNumber}`)
             .then(response => response.json())
             .then(data => setUsCountriesContact(data.results))
 
@@ -54,7 +54,7 @@ const ModalB = () => {
                             </div>
                             <div>
                                 <label>Close</label> <br />
-                                <button style={{ border: "#461395 2px solid", backgroundColor: "white" }} data-bs-dismiss="modal">Modal Button C</button>
+                                <button style={{ border: "#461395 2px solid", backgroundColor: "white" }} onClick={() => navigate('/problem-2')}>Modal Button C</button>
                             </div>
                             <div class="form-check">
                                 <input onChange={CheckOnlyEven} class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />

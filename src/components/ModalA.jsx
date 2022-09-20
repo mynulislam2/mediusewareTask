@@ -54,7 +54,7 @@ const ModalA = () => {
                             </div>
                             <div>
                                 <label>Close</label> <br />
-                                <button style={{ border: "#461395 2px solid", backgroundColor: "white" }} data-bs-dismiss="modal">Modal Button C</button>
+                                <button style={{ border: "#461395 2px solid", backgroundColor: "white" }} onClick={() => navigate('/problem-2')}>Modal Button C</button>
                             </div>
                             <div class="form-check">
                                 <input onChange={CheckOnlyEven} class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
