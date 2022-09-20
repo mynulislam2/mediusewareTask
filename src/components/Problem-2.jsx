@@ -20,7 +20,24 @@ const Problem2 = () => {
                     <div class="modal-content">
 
                         <div class="modal-body">
-                            hello
+                            <div>
+                                <label>All Contacts</label> <br />
+                                <button>Modal Button A</button>
+                            </div>
+                            <div>
+                                <label>Us Contacts</label> <br />
+                                <button>Modal Button B</button>
+                            </div>
+                            <div>
+                                <label>Close</label> <br />
+                                <button data-bs-dismiss="modal">Modal Button C</button>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Only even
+                                </label>
+                            </div>
                         </div>
 
                     </div>
